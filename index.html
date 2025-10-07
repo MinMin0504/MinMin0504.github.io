@@ -122,13 +122,11 @@
             font-weight: 500;
             padding: 0.5rem 1rem;
             border-radius: 25px;
-            transition: all 0.3s ease;
         }
         
         .nav-links a:hover,
         .nav-links a.active {
             background: var(--primary-pink);
-            transform: translateY(-2px);
         }
         
         /* Main Content */
@@ -154,14 +152,8 @@
             text-align: center;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             position: relative;
-            transition: all 1.5s ease;
-            opacity: 0;
-            transform: translateX(-50px);
-        }
-        
-        .profile-card.animate {
             opacity: 1;
-            transform: translateX(0);
+            transform: none;
         }
         
         .profile-card::before {
@@ -181,7 +173,7 @@
             height: 200px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid var(--white);
+            border: 5px solid var(--primary-pink);
             margin-bottom: 1.5rem;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
         }
@@ -204,27 +196,21 @@
             border-radius: 20px;
             padding: 2.5rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 1.2s ease;
-            opacity: 0;
-            transform: translateY(40px);
-        }
-        
-        .about-content.animate {
             opacity: 1;
-            transform: translateY(0);
+            transform: none;
         }
         
         .greeting {
             font-size: 3rem;
             font-weight: 700;
             color: var(--dark-blue);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
         }
         
         .greeting-sub {
             font-size: 1.5rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
         }
         
         .about-text {
@@ -249,22 +235,11 @@
             align-items: center;
             padding: 1rem;
             border-radius: 15px;
-            transition: all 1.2s ease;
             flex: 0 1 300px;
             color: var(--white);
             margin: 0;
-            opacity: 0;
-            transform: translateY(50px);
-        }
-        
-        .contact-item.animate {
             opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .contact-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transform: none;
         }
         
         .contact-item.email {
@@ -335,14 +310,8 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
-            transition: all 1s ease;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        
-        .skill-category.animate {
             opacity: 1;
-            transform: translateY(0);
+            transform: none;
         }
         
         .skill-category::before {
@@ -379,75 +348,7 @@
         }
         
  
-        /* Projects Section */
-        .projects-section {
-            margin-bottom: 4rem;
-        }
-        
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-        
-        .project-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.8s ease;
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(40px);
-        }
-        
-        .project-card.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary-pink), var(--accent-blue));
-        }
-        
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-        
-        .project-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--dark-blue);
-            margin-bottom: 1rem;
-        }
-        
-        .project-description {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-        }
-        
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        .tag {
-            background: var(--primary-pink);
-            color: var(--white);
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
+        /* removed Projects section styles */
         
         /* Footer */
         .footer-section {
@@ -536,29 +437,13 @@
         }
         
         /* Decorative Elements */
-        .star {
-            position: absolute;
-            color: var(--primary-pink);
-            font-size: 1.5rem;
-            animation: twinkle 2s infinite;
-        }
-        
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }
-        
-        .star:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
-        .star:nth-child(2) { top: 60%; right: 15%; animation-delay: 0.5s; }
-        .star:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 1s; }
+        /* removed decorative star animations */
     </style>
 </head>
 <body>
     <!-- Header Section -->
     <div class="header-section">
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
+        
         <div class="container">
             <h1 class="portfolio-title">
                 My Port<span class="star-decoration">✦</span>foli<span class="star-decoration">✦</span>
@@ -574,7 +459,6 @@
                 <a href="#about" class="active">About Me</a>
                 <a href="#education">Education</a>
                 <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
                 <a href="#contact">Contact</a>
             </nav>
         </div>
@@ -591,14 +475,14 @@
             </div>
             
             <div class="about-content">
-                <h1 class="greeting">Ma. Krisha N. Rubia</h1>
-                <p class="greeting-sub">Hello!</p>
+                <h2 class="greeting">Welcome to my site!</h2>
+                <p class="greeting-sub">Hello! I'm Ma. Krisha N. Rubia</p>
                 <p class="about-text">
-                    I’m a front-end developer in progress who’s still learning and exploring the world of web design. I enjoy experimenting with layouts, colors, 
+                    I’m currently learning and exploring the world of web design, where I enjoy experimenting with layouts, colors, 
                     and creative ideas to make websites not just functional but visually engaging.
                 </p>
                 <p class="about-text">
-                    When I'm not studying or practicing front-end development, you'll probably find me playing online games, watching TV, or doing schoolwork.
+                    When I'm not studying or practicing front-end development, you'll probably find me playing online games, watching Anime/Movies, or doing schoolwork.
                     I'm passionate about improving my skills and growing as a web designer, with the goal of creating modern, clean, and responsive websites that deliver a great user experience.
                 </p>
             </div>
@@ -718,69 +602,7 @@
     
     <!-- Custom JavaScript -->
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Remove active class from all links
-                document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
-                
-                // Add active class to clicked link
-                this.classList.add('active');
-                
-                // Smooth scroll to target section
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                if (targetSection) {
-                    targetSection.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-        
-        // Update active navigation based on scroll position
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-links a');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-        
-        // Add slow animations to all cards
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-        
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                }
-            });
-        }, observerOptions);
-        
-        // Observe all animated elements
-        document.querySelectorAll('.profile-card, .about-content, .skill-category, .project-card, .contact-item').forEach(element => {
-            observer.observe(element);
-        });
+        // removed JS animations and smooth scrolling for simplicity
     </script>
 </body>
 </html>
