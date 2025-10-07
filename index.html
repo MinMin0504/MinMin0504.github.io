@@ -3,663 +3,784 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Himnie Art Studio - Custom Art Commissions</title>
+    <title>Ma. Krisha N. Rubia - Portfolio</title>
     
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary-color: #983234;
-            --secondary-color: #b70e0e;
-            --accent-color: #fbe2e7;
-            --text-dark: #2C1810;
-            --text-light: #68263b;
+            --primary-pink: #ff6b9d;
+            --dark-blue: #2c3e50;
+            --light-beige: #f8f5f0;
+            --accent-blue: #3498db;
+            --white: #ffffff;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            overflow-x: hidden;
         }
         
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-beige);
             color: var(--text-dark);
             line-height: 1.6;
+            overflow-x: hidden;
         }
         
-        .display-font {
-            font-family: 'Playfair Display', serif;
+        /* Header Section */
+        .header-section {
+            background: linear-gradient(135deg, var(--primary-pink) 0%, #841238 100%);
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
         }
         
-        .navbar-brand {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 1.8rem;
-            color: var(--primary-color) !important;
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="stars" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="white" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23stars)"/></svg>');
+            opacity: 0.3;
         }
         
-        .hero-section {
-            background: linear-gradient(135deg, var(--accent-color) 0%, #FFF8F0 100%);
-            min-height: 100vh;
+        .portfolio-title {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .star-decoration {
+            color: var(--white);
+            font-size: 2rem;
+            margin: 0 0.5rem;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 300;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .subtitle::before,
+        .subtitle::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 100px;
+            height: 2px;
+            background: var(--white);
+        }
+        
+        .subtitle::before {
+            left: -120px;
+        }
+        
+        .subtitle::after {
+            right: -120px;
+        }
+        
+        /* Navigation */
+        .nav-section {
+            background: var(--dark-blue);
+            padding: 1rem 0;
+        }
+        
+        .nav-links {
             display: flex;
-            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
         }
         
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: var(--primary-pink);
+            transform: translateY(-2px);
+        }
+        
+        /* Main Content */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        /* About Section */
+        .about-section {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            align-items: start;
+        }
+        
+        .profile-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: all 1.5s ease;
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        
+        .profile-card.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, var(--primary-pink), var(--accent-blue));
+            border-radius: 25px;
+            z-index: -1;
+        }
+        
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--white);
             margin-bottom: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
         }
         
-        .hero-subtitle {
-            font-size: 1.3rem;
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .profile-title {
+            color: var(--primary-pink);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        .about-content {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 1.2s ease;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        
+        .about-content.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .greeting {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .greeting-sub {
+            font-size: 1.5rem;
             color: var(--text-light);
             margin-bottom: 2rem;
         }
         
-        .btn-primary-custom {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            padding: 12px 30px;
-            font-weight: 500;
-            border-radius: 50px;
-            transition: all 0.3s ease;
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
         }
         
-        .btn-primary-custom:hover {
-            background-color: #6B4E3D;
-            border-color: #6B4E3D;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(139, 90, 60, 0.3);
+        /* Contact Info */
+        .contact-info {
+            display: flex;
+            width: 100%;
+            gap: 1rem;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
         
-        .btn-outline-custom {
-            color: var(--primary-color);
-            border-color: var(--primary-color);
-            padding: 12px 30px;
-            font-weight: 500;
-            border-radius: 50px;
-            transition: all 0.3s ease;
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border-radius: 15px;
+            transition: all 1.2s ease;
+            flex: 0 1 300px;
+            color: var(--white);
+            margin: 0;
+            opacity: 0;
+            transform: translateY(50px);
         }
         
-        .btn-outline-custom:hover {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            transform: translateY(-2px);
+        .contact-item.animate {
+            opacity: 1;
+            transform: translateY(0);
         }
         
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 3rem;
-            text-align: center;
+        .contact-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
         }
         
-        .card-custom {
-            border: none;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            overflow: hidden;
+        .contact-item.email {
+            background: var(--primary-pink);
         }
         
-        .card-custom:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        .contact-item.phone {
+            background: var(--accent-blue);
         }
         
-        .card-img-top {
-            height: 250px;
-            object-fit: cover;
+        .contact-item.github {
+            background: var(--dark-blue);
         }
         
-        .service-icon {
-            font-size: 3rem;
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-        }
-        
-        .pricing-card {
-            background: linear-gradient(135deg, #FFF 0%, var(--accent-color) 100%);
-            border-radius: 20px;
-            padding: 2.5rem;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .pricing-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-        }
-        
-        .price {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin: 1rem 0;
-            line-height: 1.2;
-        }
-        
-        .process-step {
-            text-align: center;
-            padding: 2rem;
-        }
-        
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background-color: var(--secondary-color);
-            color: white;
+        .contact-icon {
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-right: 1rem;
             font-size: 1.5rem;
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Skills Section */
+        .skills-section {
+            margin-bottom: 4rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
             font-weight: 700;
-            margin: 0 auto 1.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            position: relative;
         }
         
-        .footer {
-            background-color: var(--text-dark);
-            color: white;
-            padding: 3rem 0 1rem;
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-pink);
+            border-radius: 2px;
         }
         
-        .social-icon {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-            margin: 0 10px;
-            transition: all 0.3s ease;
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
         
-        .social-icon:hover {
-            color: white;
-            transform: translateY(-3px);
-        }
-        
-        .contact-form {
-            background-color: var(--accent-color);
-            padding: 3rem;
+        .skill-category {
+            background: var(--white);
             border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 1s ease;
+            opacity: 0;
+            transform: translateY(30px);
         }
         
-        .form-control-custom {
-            border: 2px solid #E5D5C5;
-            border-radius: 10px;
-            padding: 12px 15px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+        .skill-category.animate {
+            opacity: 1;
+            transform: translateY(0);
         }
         
-        .form-control-custom:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 0.2rem rgba(139, 90, 60, 0.25);
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-pink), var(--accent-blue));
         }
         
+        .skill-category h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            padding: 0.5rem 0;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+        
+        .skill-list li::before {
+            content: '✦';
+            color: var(--primary-pink);
+            margin-right: 0.5rem;
+        }
+        
+ 
+        /* Projects Section */
+        .projects-section {
+            margin-bottom: 4rem;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.8s ease;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        
+        .project-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-pink), var(--accent-blue));
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .project-description {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tag {
+            background: var(--primary-pink);
+            color: var(--white);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        /* Footer */
+        .footer-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+        }
+        
+        .footer-content {
+            display: block;
+            width: 100%;
+        }
+        
+        .soft-skills {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .soft-skills-label {
+            background: var(--primary-pink);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+        
+        .soft-skills-list {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .soft-skills-list span {
+            padding: 0.3rem 0.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .hero-title {
+            .portfolio-title {
                 font-size: 2.5rem;
             }
             
-            .hero-subtitle {
-                font-size: 1.1rem;
+            .about-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .nav-links a {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+            
+            .main-container {
+                padding: 2rem 1rem;
+            }
+            
+            .greeting {
+                font-size: 2rem;
             }
             
             .section-title {
                 font-size: 2rem;
             }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 0 1rem;
+            }
+            
+            .contact-item {
+                flex: 1;
+                width: 100%;
+            }
         }
+        
+        /* Decorative Elements */
+        .star {
+            position: absolute;
+            color: var(--primary-pink);
+            font-size: 1.5rem;
+            animation: twinkle 2s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        .star:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .star:nth-child(2) { top: 60%; right: 15%; animation-delay: 0.5s; }
+        .star:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 1s; }
     </style>
 </head>
 <body>
+    <!-- Header Section -->
+    <div class="header-section">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="container">
+            <h1 class="portfolio-title">
+                My Port<span class="star-decoration">✦</span>foli<span class="star-decoration">✦</span>
+            </h1>
+            <p class="subtitle">Ma. Krisha N. Rubia | BSIT 3-1</p>
+        </div>
+    </div>
+    
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+    <div class="nav-section">
         <div class="container">
-            <a class="navbar-brand" href="#home">Himnie Art Studio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#process">Process</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#prices">Prices</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
+            <nav class="nav-links">
+                <a href="#about" class="active">About Me</a>
+                <a href="#education">Education</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h1 class="hero-title display-font">Bring Your Vision to Life</h1>
-                    <p class="hero-subtitle">Professional custom art commissions tailored to your unique style and preferences. From portraits to landscapes, I create meaningful artwork that tells your story.</p>
-                    <div class="d-flex flex-wrap gap-3">
-                        <a href="#contact" class="btn btn-primary-custom btn-lg">Start Your Commission</a>
-                        <a href="#services" class="btn btn-outline-custom btn-lg">View Portfolio</a>
-                    </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="profile-card">
+                <img src="Krishapf.jpg" alt="Profile Picture" class="profile-img">
+                <h2 class="profile-name">Ma. Krisha N. Rubia</h2>
+                <p class="profile-title">BSIT 3rd Year</p>
+            </div>
+            
+            <div class="about-content">
+                <h1 class="greeting">Ma. Krisha N. Rubia</h1>
+                <p class="greeting-sub">Hello!</p>
+                <p class="about-text">
+                    I’m a front-end developer in progress who’s still learning and exploring the world of web design. I enjoy experimenting with layouts, colors, 
+                    and creative ideas to make websites not just functional but visually engaging.
+                </p>
+                <p class="about-text">
+                    When I'm not studying or practicing front-end development, you'll probably find me playing online games, watching TV, or doing schoolwork.
+                    I'm passionate about improving my skills and growing as a web designer, with the goal of creating modern, clean, and responsive websites that deliver a great user experience.
+                </p>
+            </div>
+        </section>
+        
+        <!-- Education Section -->
+        <section id="education" class="skills-section">
+            <div class="section-header">
+                <h2 class="section-title">Education</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>🎓 Education</h3>
+                    <ul class="skill-list">
+                        <li>Polytechnic University of The Philippines</li>
+                        <li>Sto. Tomas Batangas Campus</li>
+                        <li>Bachelor of Science in Information Technology</li>
+                        <li>Currently in 3rd Year</li>
+                    </ul>
                 </div>
-                <div class="col-lg-6 text-center">
-                    <div class="position-relative">
-                        <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
-                             alt="Art Commission Example" class="img-fluid rounded-4 shadow-lg">
-                        <div class="position-absolute top-0 start-0 w-100 h-100 bg-primary bg-opacity-10 rounded-4"></div>
-                    </div>
+                <div class="skill-category">
+                    <h3>📚 Focus Areas</h3>
+                    <ul class="skill-list">
+                        <li>Front-End Development</li>
+                        <li>Web Design & UI/UX</li>
+                        <li>Responsive Design</li>
+                        <li>Creative Layouts</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-5">
-        <div class="container">
-            <h2 class="section-title">Art Commission Services</h2>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <div class="card card-custom h-100">
-                        <img src="https://images.unsplash.com/photo-1715634091297-40acbdd7109a?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-                             class="card-img-top" alt="Portrait Art">
-                        <div class="card-body text-center p-4">
-                            <i class="bi bi-brush-fill service-icon"></i>
-                            <h5 class="card-title">Portrait Art</h5>
-                            <p class="card-text">Custom portraits capturing personality and emotion. Perfect for family portraits, pet portraits, or memorial artwork.</p>
-                        </div>
-                    </div>
+        </section>
+        
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section">
+            <div class="section-header">
+                <h2 class="section-title">Skills</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>💻 Front-End Development</h3>
+                    <ul class="skill-list">
+                        <li>HTML & CSS</li>
+                        <li>Bootstrap Framework</li>
+                        <li>Version Control (GitHub and others.)</li>
+                        <li>Responsive Design</li>
+                    </ul>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card card-custom h-100">
-                        <img src="https://images.unsplash.com/photo-1759302307377-e72f6a6918a1?q=80&w=1278&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-                             class="card-img-top" alt="Anime Art">
-                        <div class="card-body text-center p-4">
-                            <i class="bi bi-cloud-fill service-icon"></i>
-                            <h5 class="card-title">Anime Art</h5>
-                            <p class="card-text">Stylized anime portraits made with detail and heart. Great for social media avatars, streaming banners, or character concept art. </p>
-                        </div>
-                    </div>
+                <div class="skill-category">
+                    <h3>🎨 Design & UI/UX</h3>
+                    <ul class="skill-list">
+                        <li>Web Design Principles</li>
+                        <li>User Experience Design</li>
+                        <li>Creative Layouts</li>
+                        <li>Color Theory</li>
+                    </ul>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card card-custom h-100">
-                        <img src="https://images.unsplash.com/photo-1649331593153-7575e5cd3c6e?q=80&w=524&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-                             class="card-img-top" alt="Digital Art">
-                        <div class="card-body text-center p-4">
-                            <i class="bi bi-tablet service-icon"></i>
-                            <h5 class="card-title">Digital Art</h5>
-                            <p class="card-text">Modern digital artwork perfect for social media, prints, or digital displays. High-resolution files included.</p>
-                        </div>
-                    </div>
+                <div class="skill-category">
+                    <h3>🛠️ Development Tools</h3>
+                    <ul class="skill-list">
+                        <li>Visual Studio Code</li>
+                        <li>Git Version Control</li>
+                        <li>Chrome DevTools</li>
+                        <li>Browser Testing</li>
+                    </ul>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card card-custom h-100">
-                        <img src="https://plus.unsplash.com/premium_photo-1677171382106-3c9083227252?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D0" 
-                             class="card-img-top" alt="Sculpture Art">
-                        <div class="card-body text-center p-4">
-                            <i class="bi bi-bricks service-icon"></i>
-                            <h5 class="card-title">Sculpture Art</h5>
-                            <p class="card-text">Custom sculpture pieces designed with artistic precision and creativity. Ideal for gifts, commemorations, or personal collections.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card card-custom h-100">
-                        <img src="https://images.unsplash.com/photo-1548980113-1a12ccf166f9?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-                             class="card-img-top" alt="3D Model Art">
-                        <div class="card-body text-center p-4">
-                            <i class="bi bi-box service-icon"></i>
-                            <h5 class="card-title">3d Model Art</h5>
-                            <p class="card-text">Detailed 3D creations that bring your imagination to life — from characters and props to stylized environments and digital sculptures.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card card-custom h-100">
-                        <img src="https://images.unsplash.com/photo-1712255830050-a7ab819c196b?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-                             class="card-img-top" alt="Fabric Art">
-                        <div class="card-body text-center p-4">
-                            <i class="bi bi-threads-fill service-icon"></i>
-                            <h5 class="card-title">Fabric Art</h5>
-                            <p class="card-text">Unique fabric creations made to inspire warmth and imagination. Perfect for gifts, displays, or adding a handmade touch to your space.</p>
-                        </div>
-                    </div>
+                <div class="skill-category">
+                    <h3>🌟 Soft Skills</h3>
+                    <ul class="skill-list">
+                        <li>Teamwork</li>
+                        <li>Creativity</li>
+                        <li>Attention to Detail</li>
+                        <li>Continuous Learning</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section id="process" class="py-5" style="background-color: var(--accent-color);">
-        <div class="container">
-            <h2 class="section-title">Commission Process</h2>
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6">
-                    <div class="process-step">
-                        <div class="step-number">1</div>
-                        <h5>Consultation</h5>
-                        <p>Share your vision, preferences, and requirements. We'll discuss style, size, timeline, and budget.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="process-step">
-                        <div class="step-number">2</div>
-                        <h5>Quote & Agreement</h5>
-                        <p>Receive a detailed quote and timeline. Sign the commission agreement and make the initial payment.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="process-step">
-                        <div class="step-number">3</div>
-                        <h5>Creation Process</h5>
-                        <p>I'll create your artwork with regular progress updates. You'll see sketches and work-in-progress photos.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="process-step">
-                        <div class="step-number">4</div>
-                        <h5>Delivery</h5>
-                        <p>Receive your finished artwork with final payment. Digital files or physical delivery options available.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Prices Section -->
-    <section id="pricing" class="py-5">
-        <div class="container">
-            <h2 class="section-title">Art Service Prices</h2>
-            <div class="row g-4">
-                <!-- Row 1 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="pricing-card h-100 d-flex flex-column">
-                        <div class="text-center mb-3">
-                            <i class="bi bi-brush-fill service-icon"></i>
-                            <h4>Portrait Art</h4>
-                            <div class="price">₱800-₱3,500</div>
-                        </div>
-                        <ul class="list-unstyled flex-grow-1 mb-3">
-                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Headshot portraits</li>
-                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Digital delivery</li>
-                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>2 revisions included</li>
-                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>High-resolution files</li>
-                        </ul>
-                        <div class="mt-auto">
-                            <a href="#contact" class="btn btn-primary-custom w-100">Get Quote</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="pricing-card h-100 d-flex flex-column">
-                        <div class="text-center mb-3">
-                            <i class="bi bi-cloud-fill service-icon"></i>
-                            <h4>Anime Art</h4>
-                            <div class="price">₱500-₱2,500</div>
-                        </div>
-                        <ul class="list-unstyled flex-grow-1 mb-3">
-                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Stylized characters</li>
-                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Social media ready</li>
-                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>2 revisions included</li>
-                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Multiple formats</li>
-                        </ul>
-                        <div class="mt-auto">
-                            <a href="#contact" class="btn btn-primary-custom w-100">Get Quote</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="pricing-card h-100 d-flex flex-column">
-                        <div class="text-center mb-3">
-                            <i class="bi bi-tablet service-icon"></i>
-                            <h4>Digital Art</h4>
-                            <div class="price">₱700-₱3,000</div>
-                        </div>
-                        <ul class="list-unstyled flex-grow-1 mb-3">
-                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Modern digital style</li>
-                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Multiple formats</li>
-                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>3 revisions included</li>
-                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Print-ready files</li>
-                        </ul>
-                        <div class="mt-auto">
-                            <a href="#contact" class="btn btn-primary-custom w-100">Get Quote</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Row 2 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="pricing-card h-100 d-flex flex-column">
-                        <div class="text-center mb-3">
-                            <i class="bi bi-bricks service-icon"></i>
-                            <h4>Sculpture Art</h4>
-                            <div class="price">₱3,500-₱15,000+</div>
-                        </div>
-                        <ul class="list-unstyled flex-grow-1 mb-3">
-                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Custom 3D sculptures</li>
-                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Various materials</li>
-                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Prototype phase included</li>
-                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Shipping available</li>
-                        </ul>
-                        <div class="mt-auto">
-                            <a href="#contact" class="btn btn-primary-custom w-100">Get Quote</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="pricing-card h-100 d-flex flex-column">
-                        <div class="text-center mb-3">
-                            <i class="bi bi-box service-icon"></i>
-                            <h4>3D Model Art</h4>
-                            <div class="price">₱2,000-₱10,000+</div>
-                        </div>
-                        <ul class="list-unstyled flex-grow-1 mb-3">
-                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Digital 3D models</li>
-                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Multiple file formats</li>
-                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>3 revisions included</li>
-                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Print-ready files</li>
-                        </ul>
-                        <div class="mt-auto">
-                            <a href="#contact" class="btn btn-primary-custom w-100">Get Quote</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="pricing-card h-100 d-flex flex-column">
-                        <div class="text-center mb-3">
-                            <i class="bi bi-threads-fill service-icon"></i>
-                            <h4>Fabric Art</h4>
-                            <div class="price">₱1,500-₱7,000</div>
-                        </div>
-                        <ul class="list-unstyled flex-grow-1 mb-3">
-                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Handcrafted textiles</li>
-                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Custom materials</li>
-                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>2 revisions included</li>
-                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Shipping included</li>
-                        </ul>
-                        <div class="mt-auto">
-                            <a href="#contact" class="btn btn-primary-custom w-100">Get Quote</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-5">
-                <div class="alert alert-info d-inline-block" style="background-color: var(--accent-color); border: none; border-radius: 15px; padding: 1.5rem;">
-                    <h5 class="mb-3"><i class="bi bi-info-circle me-2"></i>Pricing Information</h5>
-                    <p class="mb-2"><strong>Price ranges shown are starting prices.</strong></p>
-                    <p class="mb-0">Final pricing depends on complexity, size, timeline, and specific requirements. All commissions include progress updates and customer satisfaction guarantee.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-5" style="background-color: var(--accent-color);">
-        <div class="container">
-            <h2 class="section-title">Start Your Commission</h2>
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="contact-form">
-                        <form>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <label for="name" class="form-label">Full Name</label>
-                                    <input type="text" class="form-control form-control-custom" id="name" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="email" class="form-label">Email Address</label>
-                                    <input type="email" class="form-control form-control-custom" id="email" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="phone" class="form-label">Phone Number</label>
-                                    <input type="tel" class="form-control form-control-custom" id="phone">
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="service" class="form-label">Service Type</label>
-                                    <select class="form-select form-control-custom" id="service" required>
-                                        <option value="">Select a service</option>
-                                        <option value="portrait">Portrait Arts</option>
-                                        <option value="landscape">Anime Arts</option>
-                                        <option value="digital">Digital Arts</option>
-                                        <option value="illustration">Sculpture Arts</option>
-                                        <option value="wedding">3d Model Arts</option>
-                                        <option value="business"> Fabric Arts</option>
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <label for="description" class="form-label">Project Description</label>
-                                    <textarea class="form-control form-control-custom" id="description" rows="4" 
-                                              placeholder="Describe your vision, preferred style, size requirements, timeline, and any specific details..."></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <label for="budget" class="form-label">Budget Range</label>
-                                    <select class="form-select form-control-custom" id="budget">
-                                        <option value="">Select budget range</option>
-                                        <option value="under-500">Under ₱500</option>
-                                        <option value="500-3000">₱500 - ₱3,000</option>
-                                        <option value="7000–1000">₱7,000 – ₱10,000</option>
-                                        <option value="over-15000">Over ₱15,000</option>
-                                    </select>
-                                </div>
-                                <div class="col-12 text-center">
-                                    <button type="submit" class="btn btn-primary-custom btn-lg px-5">Send Commission Request</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+        </section>
+        
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer-section">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <h5 class="display-font text-warning">Himnie Art Studio</h5>
-                    <p class="text-light">Creating meaningful artwork that tells your unique story. Professional art commissions with a personal touch.</p>
-                    <div class="mt-3">
-                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="bi bi-pinterest"></i></a>
+            <div class="footer-content">
+                <div class="contact-info">
+                    <div class="contact-item email">
+                        <div class="contact-icon">
+                            <i class="bi bi-envelope"></i>
+                        </div>
+                        <div>
+                            <strong>Email:</strong><br>
+                            krisharubia05@gmail.com<br>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h6 class="text-warning">Services</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-light text-decoration-none">Portrait Arts</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">Anime Arts</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">Digital Art</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">Sculpture Arts</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">3D Model Arts</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">Fabric Arts</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h6 class="text-warning">Information</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="#process" class="text-light text-decoration-none">Process</a></li>
-                        <li><a href="#pricing" class="text-light text-decoration-none">Prices</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">FAQ</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">Testimonials</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-4 mb-4">
-                    <h6 class="text-warning">Contact Info</h6>
-                    <p class="text-light mb-2"><i class="bi bi-envelope me-2"></i>hello@himnieart.com</p>
-                    <p class="text-light mb-2"><i class="bi bi-phone me-2"></i>(555) 123-4567</p>
-                    <p class="text-light"><i class="bi bi-geo-alt me-2"></i>Art Studio, Creative District</p>
-                </div>
-            </div>
-            <hr class="my-4" style="border-color: #6B4E3D;">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <p class="text-light mb-0">&copy; 2025 Himnie Art Studio. All rights reserved.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <a href="#" class="text-light text-decoration-none me-3">Privacy Policy</a>
-                    <a href="#" class="text-light text-decoration-none">Terms of Service</a>
+                    <div class="contact-item phone">
+                        <div class="contact-icon">
+                            <i class="bi bi-phone"></i>
+                        </div>
+                        <div>
+                            <strong>Phone:</strong><br>
+                            +63 961 870 9063<br>
+                        </div>
+                    </div>
+                    <div class="contact-item github">
+                        <div class="contact-icon">
+                            <i class="bi bi-github"></i>
+                        </div>
+                        <div>
+                            <strong>GitHub:</strong><br>
+                            github.com/MinMin0504.github.io<br>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Smooth Scrolling -->
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
     <script>
         // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
+                
+                // Remove active class from all links
+                document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Smooth scroll to target section
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
                     });
                 }
             });
         });
-
-        // Form submission handling
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your commission request! I\'ll get back to you within 24 hours.');
-        });
-
-        // Navbar background change on scroll
+        
+        // Update active navigation based on scroll position
         window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-                navbar.style.backdropFilter = 'blur(10px)';
-            } else {
-                navbar.style.backgroundColor = 'white';
-                navbar.style.backdropFilter = 'none';
-            }
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Add slow animations to all cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all animated elements
+        document.querySelectorAll('.profile-card, .about-content, .skill-category, .project-card, .contact-item').forEach(element => {
+            observer.observe(element);
         });
     </script>
 </body>
 </html>
-
-
-
