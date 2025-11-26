@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma. Krisha N. Rubia - Portfolio</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-pink: #ff6b9d;
+            --dark-blue: #2c3e50;
+            --light-beige: #f8f5f0;
+            --accent-blue: #3498db;
+            --white: #ffffff;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            overflow-x: hidden;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-beige);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Header Section */
+        .header-section {
+            background: linear-gradient(135deg, var(--primary-pink) 0%, #841238 100%);
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="stars" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="white" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23stars)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .portfolio-title {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .star-decoration {
+            color: var(--white);
+            font-size: 2rem;
+            margin: 0 0.5rem;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 300;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .subtitle::before,
+        .subtitle::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 100px;
+            height: 2px;
+            background: var(--white);
+        }
+        
+        .subtitle::before {
+            left: -120px;
+        }
+        
+        .subtitle::after {
+            right: -120px;
+        }
+        
+        /* Navigation */
+        .nav-section {
+            background: var(--dark-blue);
+            padding: 1rem 0;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: var(--primary-pink);
+        }
+        
+        /* Main Content */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        /* About Section */
+        .about-section {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            align-items: start;
+        }
+        
+        .profile-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            opacity: 1;
+            transform: none;
+        }
+        
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, var(--primary-pink), var(--accent-blue));
+            border-radius: 25px;
+            z-index: -1;
+        }
+        
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-pink);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .profile-title {
+            color: var(--dark-blue);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        .about-content {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            opacity: 1;
+            transform: none;
+        }
+        
+        .greeting {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin-bottom: 0.75rem;
+        }
+        
+        .greeting-sub {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Contact Info */
+        .contact-info {
+            display: flex;
+            width: 100%;
+            gap: 1rem;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border-radius: 15px;
+            flex: 0 1 300px;
+            color: var(--white);
+            margin: 0;
+            opacity: 1;
+            transform: none;
+        }
+        
+        .contact-item.email {
+            background: var(--primary-pink);
+        }
+        
+        .contact-item.phone {
+            background: var(--accent-blue);
+        }
+        
+        .contact-item.github {
+            background: var(--dark-blue);
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Skills Section */
+        .skills-section {
+            margin-bottom: 4rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-pink);
+            border-radius: 2px;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-category {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            opacity: 1;
+            transform: none;
+        }
+        
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-pink), var(--accent-blue));
+        }
+        
+        .skill-category h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            padding: 0.5rem 0;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+        
+        .skill-list li::before {
+            content: '✦';
+            color: var(--primary-pink);
+            margin-right: 0.5rem;
+        }
+        
+        .footer-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+        }
+        
+        .footer-content {
+            display: block;
+            width: 100%;
+        }
+        
+        .soft-skills {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .soft-skills-label {
+            background: var(--primary-pink);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+        
+        .soft-skills-list {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .soft-skills-list span {
+            padding: 0.3rem 0.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+        
+        /* Activities Section */
+        .activities-section {
+            margin-bottom: 4rem;
+        }
+        
+        .activity-card {
+            border: none;
+            border-radius: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .activity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15) !important;
+        }
+        
+        .activity-card .card-body {
+            padding: 2rem;
+            background: var(--white);
+        }
+        
+        .activity-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--primary-pink), var(--accent-blue));
+            color: var(--white);
+        }
+        
+        .activity-card .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .activity-card .card-text {
+            margin-bottom: 1.5rem;
+            min-height: 48px;
+        }
+        
+        .activity-btn {
+            background: linear-gradient(135deg, var(--primary-pink), var(--accent-blue));
+            border: none;
+            border-radius: 25px;
+            padding: 0.6rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .activity-btn:hover:not(.disabled) {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 107, 157, 0.4);
+        }
+        
+        .activity-btn.disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        @media (max-width: 768px) {
+            .portfolio-title {
+                font-size: 2.5rem;
+            }
+            
+            .about-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .nav-links a {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+            
+            .main-container {
+                padding: 2rem 1rem;
+            }
+            
+            .greeting {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 0 1rem;
+            }
+            
+            .contact-item {
+                flex: 1;
+                width: 100%;
+            }
+            
+            .activity-card .card-body {
+                padding: 1.5rem;
+            }
+            
+            .activity-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header-section">
+        
+        <div class="container">
+            <h1 class="portfolio-title">
+                My Port<span class="star-decoration">✦</span>foli<span class="star-decoration">✦</span>
+            </h1>
+            <p class="subtitle">Ma. Krisha N. Rubia | BSIT 3-1</p>
+        </div>
+    </div>
+    
+    <!-- Navigation -->
+    <div class="nav-section">
+        <div class="container">
+            <nav class="nav-links">
+                <a href="#about" class="active">About Me</a>
+                <a href="#education">Education</a>
+                <a href="#skills">Skills</a>
+                <a href="#activities">Activities</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="profile-card">
+                <img src="Krishapf.jpg" alt="Profile Picture" class="profile-img">
+                <h2 class="profile-name">Ma. Krisha N. Rubia</h2>
+                <p class="profile-title">BSIT 3rd Year</p>
+            </div>
+            
+            <div class="about-content">
+                <h2 class="greeting">Welcome to my site!</h2>
+                <p class="greeting-sub">Hello! I'm Ma. Krisha N. Rubia</p>
+                <p class="about-text">
+                    I’m currently learning and exploring the world of web design, where I enjoy experimenting with layouts, colors, 
+                    and creative ideas to make websites not just functional but visually engaging.
+                </p>
+                <p class="about-text">
+                    When I'm not studying or practicing front-end development, you'll probably find me playing online games, watching Anime/Movies, or doing schoolwork.
+                    I'm passionate about improving my skills and growing as a web designer, with the goal of creating modern, clean, and responsive websites that deliver a great user experience.
+                </p>
+            </div>
+        </section>
+        
+        <!-- Education Section -->
+        <section id="education" class="skills-section">
+            <div class="section-header">
+                <h2 class="section-title">Education</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>🎓 Education</h3>
+                    <ul class="skill-list">
+                        <li>Polytechnic University of The Philippines</li>
+                        <li>Sto. Tomas Batangas Campus</li>
+                        <li>Bachelor of Science in Information Technology</li>
+                        <li>Currently in 3rd Year</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>📚 Focus Areas</h3>
+                    <ul class="skill-list">
+                        <li>Front-End Development</li>
+                        <li>Web Design & UI/UX</li>
+                        <li>Responsive Design</li>
+                        <li>Creative Layouts</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section">
+            <div class="section-header">
+                <h2 class="section-title">Skills</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>💻 Front-End Development</h3>
+                    <ul class="skill-list">
+                        <li>HTML & CSS</li>
+                        <li>Bootstrap Framework</li>
+                        <li>Version Control (GitHub and others.)</li>
+                        <li>Responsive Design</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>🎨 Design & UI/UX</h3>
+                    <ul class="skill-list">
+                        <li>Web Design Principles</li>
+                        <li>User Experience Design</li>
+                        <li>Creative Layouts</li>
+                        <li>Color Theory</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>🛠️ Development Tools</h3>
+                    <ul class="skill-list">
+                        <li>Visual Studio Code</li>
+                        <li>Git Version Control</li>
+                        <li>Chrome DevTools</li>
+                        <li>Browser Testing</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>🌟 Soft Skills</h3>
+                    <ul class="skill-list">
+                        <li>Teamwork</li>
+                        <li>Creativity</li>
+                        <li>Attention to Detail</li>
+                        <li>Continuous Learning</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activities Section -->
+        <section id="activities" class="activities-section">
+            <div class="section-header">
+                <h2 class="section-title">Activities</h2>
+            </div>
+            <div class="container-fluid px-0">
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="activity-card card h-100 shadow-sm">
+                            <div class="card-body">
+                                <div class="activity-icon mb-3">
+                                    <i class="bi bi-github"></i>
+                                </div>
+                                <h3 class="card-title">Activity 4</h3>
+                                <p class="card-text text-muted">Playstation 5</p>
+                                <a href="https://github.com/MinMin0504/krisharubia.github.io.git" target="_blank" class="btn btn-primary activity-btn">
+                                    <i class="bi bi-github me-2"></i>View on GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="activity-card card h-100 shadow-sm">
+                            <div class="card-body">
+                                <div class="activity-icon mb-3">
+                                    <i class="bi bi-github"></i>
+                                </div>
+                                <h3 class="card-title">Activity 5</h3>
+                                <p class="card-text text-muted">Boracay Trip</p>
+                                <a href="https://github.com/MinMin0504/rubia_boracay.git" target="_blank" class="btn btn-primary activity-btn">
+                                    <i class="bi bi-github me-2"></i>View on GitHub
+                                </a>        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!--Footer-->     
+    <footer id="contact" class="footer-section">
+        <div class="container">
+            <div class="footer-content">
+                <div class="contact-info">
+                    <div class="contact-item email">
+                        <div class="contact-icon">
+                            <i class="bi bi-envelope"></i>
+                        </div>
+                        <div>
+                            <strong>Email:</strong><br>
+                            krisharubia05@gmail.com<br>
+                        </div>
+                    </div>
+                    <div class="contact-item phone">
+                        <div class="contact-icon">
+                            <i class="bi bi-phone"></i>
+                        </div>
+                        <div>
+                            <strong>Phone:</strong><br>
+                            +63 961 870 9063<br>
+                        </div>
+                    </div>
+                    <div class="contact-item github">
+                        <div class="contact-icon">
+                            <i class="bi bi-github"></i>
+                        </div>
+                        <div>
+                            <strong>GitHub:</strong><br>
+                            github.com/MinMin0504.github.io<br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    </script>
+</body>
+</html>
